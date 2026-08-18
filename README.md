@@ -8,11 +8,7 @@ hermes skills tap add kairence-ai/skills
 hermes skills install kairence-ai/skills/kairence
 ```
 
-Or install the one skill without subscribing to the tap:
-
-```bash
-hermes skills install kairence-ai/skills/skills/kairence
-```
+Already installed? `hermes skills update kairence` pulls the newest version.
 
 The skills are plain `SKILL.md` files, so an agent on any harness that reads the Agent Skills
 format can use them by copying the folder into its own skills directory.
