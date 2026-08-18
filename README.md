@@ -5,7 +5,7 @@ A [Hermes Agent](https://hermes-agent.nousresearch.com) tap: skills for agents t
 
 ```bash
 hermes skills tap add kairence-ai/skills
-hermes skills install kairence-ai/skills/kairence
+hermes skills install kairence-ai/skills/agent
 ```
 
 Already installed? `hermes skills check` reports what has moved upstream and
