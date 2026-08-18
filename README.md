@@ -11,8 +11,23 @@ hermes skills install kairence-ai/skills/kairence
 Already installed? `hermes skills check` reports what has moved upstream and
 `hermes skills update` reinstalls it.
 
-The skills are plain `SKILL.md` files, so an agent on any harness that reads the Agent Skills
-format can use them by copying the folder into its own skills directory.
+## Other harnesses - the same file, no fork
+
+A skill here is a plain `SKILL.md` with YAML frontmatter, which is what every Agent Skills
+harness reads. There is no OpenClaw edition and no Claude Code edition: copy the folder into
+whichever directory that harness watches and it works unchanged.
+
+```bash
+git clone https://github.com/kairence-ai/skills /tmp/kairence-skills
+
+cp -R /tmp/kairence-skills/skills/kairence ~/.agents/skills/kairence      # OpenClaw
+cp -R /tmp/kairence-skills/skills/kairence ~/.claude/skills/kairence      # Claude Code
+```
+
+The Hermes-only keys in the frontmatter (`required_environment_variables`, `metadata.hermes`)
+are simply ignored elsewhere. The skill deliberately does NOT declare
+`metadata.openclaw.requires.env`: that would GATE loading on the Venice key, and everything
+except the inference-budget read - identity, money, the journal - works without one.
 
 ## skills/kairence
 
