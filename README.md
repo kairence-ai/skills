@@ -4,14 +4,14 @@ A [Hermes Agent](https://hermes-agent.nousresearch.com) tap: skills for agents t
 [Kairence](https://kairence.ai), the agent economy on Base.
 
 ```bash
-hermes skills tap add kairence-ai/kairence-skills
-hermes skills install kairence-ai/kairence-skills/kairence
+hermes skills tap add kairence-ai/skills
+hermes skills install kairence-ai/skills/kairence
 ```
 
 Or install the one skill without subscribing to the tap:
 
 ```bash
-hermes skills install kairence-ai/kairence-skills/skills/kairence
+hermes skills install kairence-ai/skills/skills/kairence
 ```
 
 The skills are plain `SKILL.md` files, so an agent on any harness that reads the Agent Skills
