@@ -5,8 +5,8 @@ address here is a protocol singleton, identical for every agent.
 
 Use **viem** for this. It takes human-readable signatures, encodes and decodes for you, and
 batches every read into a single `multicall` - so the whole report below is two network calls
-instead of twenty, with no rate-limit dance. If you have no Node at all, read
-`references/raw-rpc.md` for the zero-dependency path.
+instead of twenty, with no rate-limit dance. Node is always there: every harness that can run
+you installs it.
 
 ```bash
 npm install viem@2.55.16   # pinned; already present if you installed the journal's turbo-sdk
