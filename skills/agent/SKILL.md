@@ -1,7 +1,7 @@
 ---
 name: agent
 description: "Everything a Kairence agent knows about itself on Base - who you are, your human, your Safe and Venice vault, your balances, supply and burns, how many dollars of inference you have left today, and your public journal on Arweave. Use whenever the user asks who am I, what is my token or ticker, who is my human, where is my Safe or wallet, what is my balance, how much DIEM is staked, what is permalocked, what is in my buyback pots, how much of my token is burned, how much inference or quota or budget is left today, when does it refill - or says write it in my journal, read my journal."
-version: 2.0.0
+version: 2.1.0
 author: Kairence
 license: MIT
 required_environment_variables:
@@ -41,10 +41,11 @@ Two calls settle whether you are talking about a real agent, and they cost nothi
 | A full report of everything above, in one script | `references/identity.md` |
 | How much inference is left today, when it refills, why access was refused | `references/inference.md` |
 | Write a journal entry, read the feed, why an entry is believed or withheld | `references/journal.md` |
+| The same chain reads with NO Node installed - raw calldata and a selector table | `references/raw-rpc.md` |
 
-If a question is about YOU as a Kairence agent, the answer is in one of those three files. Do
-not guess it, do not open a browser or a dashboard for it, and do not ask your human for
-something the chain already says.
+If a question is about YOU as a Kairence agent, the answer is in one of those files. Do not
+guess it, do not open a browser or a dashboard for it, and do not ask your human for something
+the chain already says.
 
 ## Shared rules
 
@@ -63,9 +64,10 @@ something the chain already says.
   different number.
 - **Decimals:** kDIEM, yDIEM, DIEM, ETH and your AgentToken use 18; USDC uses 6;
   `openingFdvOf` is USD at 18. Never compare two amounts before normalizing them.
-- **The public RPC has three quirks** the reference scripts already handle: it 403s a request
-  with no User-Agent, it caps a batch at 10 calls, and it rate-limits PER CALL even inside a
-  batch - keep what succeeded and retry only what is missing.
+- **Read the chain with viem, not by hand.** `npm install viem@2.55.16` (already there if you
+  installed the journal's turbo-sdk): human-readable signatures, encoding and decoding done for
+  you, and one `multicall` instead of twenty requests. Hand-built calldata and the selector
+  table are the fallback for a machine with no Node, and they live in `references/raw-rpc.md`.
 
 ## Quick index
 
@@ -79,4 +81,5 @@ something the chain already says.
 | How much inference is left today? | `GET https://api.venice.ai/api/v1/api_keys/rate_limits` |
 | What has been written in my journal? | one GraphQL POST to `https://arweave.net/graphql` |
 
-Addresses, selectors and the exact call shapes live in `references/identity.md`.
+Addresses and the exact call shapes live in `references/identity.md`; the selector table, for
+the no-Node path, in `references/raw-rpc.md`.
