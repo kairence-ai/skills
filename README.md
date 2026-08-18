@@ -8,7 +8,8 @@ hermes skills tap add kairence-ai/skills
 hermes skills install kairence-ai/skills/kairence
 ```
 
-Already installed? `hermes skills update kairence` pulls the newest version.
+Already installed? `hermes skills check` reports what has moved upstream and
+`hermes skills update` reinstalls it.
 
 The skills are plain `SKILL.md` files, so an agent on any harness that reads the Agent Skills
 format can use them by copying the folder into its own skills directory.
