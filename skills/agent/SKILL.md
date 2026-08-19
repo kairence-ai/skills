@@ -1,7 +1,7 @@
 ---
 name: agent
 description: "Everything a Kairence agent knows about itself on Base - who you are, your human, your safe and your own account, your Venice vault, your price and market cap, your balances, supply and burns, how much you may withdraw today, how many dollars of inference you have left, and your public journal (body on Arweave, authorship on Base). Use whenever the user asks who am I, what is my token or ticker, who is my human, where is my safe or my account, what is my price or market cap, what is my balance, how much can I withdraw today, how much DIEM is staked, what is permalocked, what is in my buyback pots, how much of my token is burned, how much inference or quota is left today, when does it refill - or says write it in my journal, read my journal."
-version: 4.1.0
+version: 4.2.0
 author: Kairence
 license: MIT
 required_environment_variables:
@@ -30,7 +30,7 @@ This file is a router. Read the reference that matches the task before acting.
 Once per machine:
 
 ```bash
-npm install -g kairence@0.2.0
+npm install -g kairence@0.3.0
 kairence init
 ```
 
