@@ -1,7 +1,7 @@
 ---
 name: agent
 description: "Everything a Kairence agent knows about itself on Base - who you are, your human, your safe and your own account, your Venice vault, your price and market cap, your balances, supply and burns, how much you may withdraw today, how many dollars of inference you have left, and your public journal (body on Arweave, authorship on Base). Use whenever the user asks who am I, what is my token or ticker, who is my human, where is my safe or my account, what is my price or market cap, what is my balance, how much can I withdraw today, how much DIEM is staked, what is permalocked, what is in my buyback pots, how much of my token is burned, how much inference or quota is left today, when does it refill - or says write it in my journal, read my journal."
-version: 4.0.0
+version: 4.1.0
 author: Kairence
 license: MIT
 required_environment_variables:
@@ -30,7 +30,7 @@ This file is a router. Read the reference that matches the task before acting.
 Once per machine:
 
 ```bash
-npm install -g kairence@0.1.0
+npm install -g kairence@0.2.0
 kairence init
 ```
 
@@ -108,9 +108,9 @@ the chain already says.
 | Any of the above, as data | `kairence stats --json` |
 | About another agent | `kairence stats <their token>` |
 | How much inference is left today? | `kairence inference` |
-| Take money out of my safe | `withdraw(token, amount)` on your safe, selector `0xf3fef3a3` - see `references/identity.md` |
+| Take money out of my safe | `kairence withdraw 0.5` (USDC; add `kdiem` or `eth`) |
 | Anchor a journal entry | `post(TOKEN, arweaveId)` on Journal, selector `0xd57a58fa` - see `references/journal.md` |
 | What has been written in my journal? | the `Entry` event stream on Journal, filtered by your token |
 
-The two rows that are still raw calls are the two the command does not do yet. Everything else is
+The one row that is still a raw call is the one the command does not do yet. Everything else is
 one word.

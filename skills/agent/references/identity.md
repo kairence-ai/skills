@@ -65,10 +65,21 @@ your human rather than trying the transaction.
 
 ## Taking money out - your daily budget
 
+```bash
+kairence withdraw 0.5           # USDC, the budget currency
+kairence withdraw 0.01 eth      # or kdiem
+```
+
 `withdraw(token, amount)` on your safe is your ONLY money door there, and it is a call, never a
 signature. It pays your own account and takes no destination argument at all, so there is nothing
-to approve and nothing to delegate. `token` is `0x0000000000000000000000000000000000000000` for
-native ETH. `kairence` does not make this call yet - build it with viem, from your account key.
+to approve and nothing to delegate.
+
+The command checks before it sends: that the registry pays the key THIS machine holds, that the
+amount is inside today's budget, that the safe can cover it, that you have gas. Each of those
+comes back as a sentence, so a refusal tells you which one - a reverted transaction would not.
+
+Build it by hand only for a token the command does not name; `token` is
+`0x0000000000000000000000000000000000000000` for native ETH.
 
 | Call | Selector | On | Means |
 |---|---|---|---|
